@@ -6,6 +6,7 @@ export interface PhraseResponse{
 export interface Rhythm{
     kindOfAccent: KindOfAccent;
     wordIndexInPhrase: number;
+    isReadedNow?: boolean;
 }
 
 export enum KindOfAccent{
