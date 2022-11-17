@@ -32,4 +32,9 @@ export class BasicComponent implements OnInit {
     this.rhythmService.readPhrase(this.phraseService.rhythmResponse.rhythms);
   }
 
+  reset(): void{
+    this.counter = 0;
+    this.phrase.forEach(p => p.isReadedNow = false);
+  }
+
 }
