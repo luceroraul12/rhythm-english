@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PhraseService } from 'src/app/services/phrase.service';
 
 @Component({
   selector: 'app-basic',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./basic.component.css']
 })
 export class BasicComponent implements OnInit {
+  public phrase!: string;
 
-  constructor() { }
+  constructor(
+    private phraseService: PhraseService
+  ) { }
 
   ngOnInit(): void {
+    this.phrase = this.phraseService.phrase;
   }
 
 }
