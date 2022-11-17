@@ -1,3 +1,5 @@
+<h2>count: {{counter}}</h2>
 <div *ngFor="let item of phrase" [ngClass]="{'wordSelected' : item.isReadedNow}">
     {{item.word}}
 </div>
+<button (click)="readPhrase()">Play!</button>

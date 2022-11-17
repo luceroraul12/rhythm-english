@@ -10,6 +10,7 @@ import { RhythmService } from 'src/app/services/rhythm.service';
 })
 export class BasicComponent implements OnInit {
   public phrase!: WordInPhrase[];
+  public counter!: number;
 
   constructor(
     private phraseService: PhraseService,
@@ -17,12 +18,17 @@ export class BasicComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.counter = 0;
     this.phrase = this.phraseService.rhythmResponse.phrase;
     this.phraseService.communicator.subscribe(
       index => {
+        this.counter++;
         this.phrase[index].isReadedNow = true;
       }
     )
+  }
+
+  readPhrase():void{
     this.rhythmService.readPhrase(this.phraseService.rhythmResponse.rhythms);
   }
 
