@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Rhythm } from 'src/app/interfaces/phrase-response.interface';
 import { PhraseService } from 'src/app/services/phrase.service';
 import { RhythmService } from 'src/app/services/rhythm.service';
 
@@ -8,7 +9,7 @@ import { RhythmService } from 'src/app/services/rhythm.service';
   styleUrls: ['./basic.component.css']
 })
 export class BasicComponent implements OnInit {
-  public phrase!: string[];
+  public phrase!: Rhythm[];
 
   constructor(
     private phraseService: PhraseService,
@@ -16,7 +17,12 @@ export class BasicComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.phrase = this.phraseService.rhythmResponse.phrase;
+    this.phrase = this.phraseService.rhythmResponse.rhythms;
+    this.phraseService.communicator.subscribe(
+      index => {
+        // this.phrase[index].
+      }
+    )
   }
 
 }
