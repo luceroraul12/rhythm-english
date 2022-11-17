@@ -16,7 +16,6 @@ export class RhythmService {
         
         setTimeout(()=>{
           this.phraseService.communicator.next(r.wordIndexInPhrase);
-          console.log(r);
         }, index * 1000);
     })
   }
