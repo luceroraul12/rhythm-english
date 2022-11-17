@@ -33,12 +33,16 @@ export class RhythmService {
     });
 
     console.log('index of High accents',highIndexs);
+    
     let lastIndex = 0;
     highIndexs.forEach(
       i => {
         result.push(
           rhythms.slice(lastIndex, i)
         );
+        if(i == rhythms.length-1 ){
+          result.push([rhythms[i]]);
+        }
         lastIndex = i;
       }
     );
@@ -47,6 +51,6 @@ export class RhythmService {
     
 
 
-    return [];
+    return result;
   }
 }
