@@ -18,14 +18,17 @@ export class BasicComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.counter = 1;
+    this.counter = 0;
     this.phrase = this.phraseService.rhythmResponse.phrase;
     this.phraseService.communicator.subscribe(
       index => {
         this.counter++;
         this.phrase.forEach(p => p.isReadedNow = false);
         this.phrase[index].isReadedNow = true;
-        
+
+        if(this.counter == this.phraseService.rhythmResponse.rhythms.length){
+          setTimeout(()=>this.reset(),1000);
+        }
       }
     )
   }
