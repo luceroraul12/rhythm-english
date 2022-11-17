@@ -15,11 +15,12 @@ export class PhraseService {
       {word: "play"     ,kindOfAccent: KindOfAccent.HIGH,     wordIndexInPhrase: 3},
       {word: "the"      ,kindOfAccent: KindOfAccent.LOW,      wordIndexInPhrase: 4},
       {word: "piano"    ,kindOfAccent: KindOfAccent.HIGH,     wordIndexInPhrase: 5},
-      {word: "all"      ,kindOfAccent: KindOfAccent.LOW,      wordIndexInPhrase: 6},
-      {word: "days"     ,kindOfAccent: KindOfAccent.HIGH,     wordIndexInPhrase: 7},
-      {word: "in"       ,kindOfAccent: KindOfAccent.LOW,      wordIndexInPhrase: 8},
-      {word: "my"       ,kindOfAccent: KindOfAccent.LOW,      wordIndexInPhrase: 9},
-      {word: "home"     ,kindOfAccent: KindOfAccent.HIGH,     wordIndexInPhrase: 10},
+      {word: "piano"    ,kindOfAccent: KindOfAccent.LOW,      wordIndexInPhrase: 6},
+      {word: "all"      ,kindOfAccent: KindOfAccent.LOW,      wordIndexInPhrase: 7},
+      {word: "days"     ,kindOfAccent: KindOfAccent.HIGH,     wordIndexInPhrase: 8},
+      {word: "in"       ,kindOfAccent: KindOfAccent.LOW,      wordIndexInPhrase: 9},
+      {word: "my"       ,kindOfAccent: KindOfAccent.LOW,      wordIndexInPhrase: 10},
+      {word: "home"     ,kindOfAccent: KindOfAccent.HIGH,     wordIndexInPhrase: 11},
     ]
   }
 
