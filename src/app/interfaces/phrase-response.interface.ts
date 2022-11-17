@@ -1,15 +1,18 @@
 import { Word } from "./word.interface";
 
 export interface PhraseResponse{
-    phrase: string[];
+    phrase: WordInPhrase[];
     rhythms: Rhythm[];
 }
 
-export interface Rhythm{
+export interface WordInPhrase{
     word: string;
+    isReadedNow?: boolean;
+}
+
+export interface Rhythm{
     kindOfAccent: KindOfAccent;
     wordIndexInPhrase: number;
-    isReadedNow?: boolean;
 }
 
 export enum KindOfAccent{
