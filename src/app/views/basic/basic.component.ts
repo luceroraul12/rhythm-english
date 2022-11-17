@@ -20,9 +20,10 @@ export class BasicComponent implements OnInit {
     this.phrase = this.phraseService.rhythmResponse.rhythms;
     this.phraseService.communicator.subscribe(
       index => {
-        // this.phrase[index].
+        this.phrase[index].isReadedNow = true;
       }
     )
+    this.rhythmService.readPhrase(this.phrase);
   }
 
 }

@@ -1,3 +1,3 @@
-<div *ngFor="let item of phrase">
+<div *ngFor="let item of phrase" [ngClass]="{'wordSelected' : item.isReadedNow}">
     {{item.word}}
 </div>

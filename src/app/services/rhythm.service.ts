@@ -12,8 +12,12 @@ export class RhythmService {
   ) { }
 
   readPhrase(rhythms: Rhythm[]){
-    rhythms.forEach(r => {
-        setTimeout(() => this.phraseService.communicator.next(r.wordIndexInPhrase), 2000);
+    rhythms.forEach((r,index) => {
+        
+        setTimeout(()=>{
+          this.phraseService.communicator.next(r.wordIndexInPhrase);
+          console.log(r);
+        }, index * 1000);
     })
   }
 }
