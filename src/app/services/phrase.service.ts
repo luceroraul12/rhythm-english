@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { KindOfAccent, PhraseResponse, Rhythm } from '../interfaces/phrase-response.interface';
 
 @Injectable({
@@ -21,6 +22,8 @@ export class PhraseService {
       {kindOfAccent: KindOfAccent.HIGH, wordIndexInPhrase: 10},
     ]
   }
+
+  communicator: Subject<number> = new Subject();
 
   constructor() { }
 }
