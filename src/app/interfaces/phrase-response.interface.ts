@@ -1,5 +1,5 @@
 export interface PhraseResponse{
-    phrase: string;
+    phrase: string[];
     rhythms: Rhythm[];
 }
 
