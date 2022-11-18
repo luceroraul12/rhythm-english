@@ -9,6 +9,7 @@ import { PhraseService } from './phrase.service';
 export class RhythmService {
 
   private myAudioContext = new AudioContext();
+  private everyTime: number = 700;
 
   constructor(
     private phraseService: PhraseService
@@ -19,7 +20,7 @@ export class RhythmService {
 
     let observable: Observable<Rhythm[]> = from(result)
                                             .pipe(
-                                              concatMap(val => of(val).pipe(delay(1000))),
+                                              concatMap(val => of(val).pipe(delay(this.everyTime))),
                                               // tap(console.log)
                                             );
 
@@ -30,7 +31,7 @@ export class RhythmService {
         let count: number = rhythms.length;
         observableInside = from(rhythms)
                             .pipe(
-                              concatMap(val => of(val).pipe(delay(1000/count))),
+                              concatMap(val => of(val).pipe(delay(this.everyTime/count))),
                               tap(rhythm => this.emitBeep(rhythm))
                             );
         observableInside.subscribe( w => {
