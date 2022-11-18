@@ -15,10 +15,9 @@ export class RhythmService {
     private phraseService: PhraseService
   ) { }
 
-  readPhrase(rhythms: Rhythm[]){
-    let result: Array<Rhythm[]> = this.generateListOfRhythms(rhythms);
+  readPhrase(lists: Array<Rhythm[]>){
 
-    let observable: Observable<Rhythm[]> = from(result)
+    let observable: Observable<Rhythm[]> = from(lists)
                                             .pipe(
                                               concatMap(val => of(val).pipe(delay(this.everyTime))),
                                             );
@@ -39,6 +38,7 @@ export class RhythmService {
       }
     );
   }
+
   emitBeep(rhythm: Rhythm) {
     if(rhythm.kindOfAccent == KindOfAccent.HIGH){
       this.beep(200, 440, 10);
@@ -46,40 +46,6 @@ export class RhythmService {
       this.beep(200, 400, 3);
     }
   }
-
-  generateListOfRhythms(rhythms: Rhythm[]): Array<Rhythm[]>{
-    let highIndexs: number[] = [];
-    let result: Array<Rhythm[]> = [];
-
-    rhythms.forEach((p, index) => {
-      if (p.kindOfAccent == KindOfAccent.HIGH){
-        highIndexs.push(index);
-      }
-    });
-
-    console.log('index of High accents',highIndexs);
-    
-    let lastIndex = 0;
-    highIndexs.forEach(
-      i => {
-        result.push(
-          rhythms.slice(lastIndex, i)
-        );
-        if(i == rhythms.length-1 ){
-          result[result.length-1].push(rhythms[i]);
-        }
-        lastIndex = i;
-      }
-    );
-
-    console.log('result :', result);
-    
-
-
-    return result;
-  }
-
-
 
   beep(duration: number, frequency: number, volume: number){
     return new Promise<void>((resolve, reject) => {
