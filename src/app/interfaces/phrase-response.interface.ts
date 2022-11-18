@@ -3,6 +3,7 @@ import { Word } from "./word.interface";
 export interface PhraseResponse{
     phrase: WordInPhrase[];
     rhythms: Rhythm[];
+    listRhythmToPlay: Array<Rhythm[]>;
 }
 
 export interface WordInPhrase{

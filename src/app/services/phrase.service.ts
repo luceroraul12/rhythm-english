@@ -33,6 +33,30 @@ export class PhraseService {
       {kindOfAccent: KindOfAccent.LOW,      wordIndexInPhrase: 8},
       {kindOfAccent: KindOfAccent.LOW,      wordIndexInPhrase: 9},
       {kindOfAccent: KindOfAccent.HIGH,     wordIndexInPhrase: 10},
+    ],
+    listRhythmToPlay: [
+      [
+        {kindOfAccent: KindOfAccent.LOW,      wordIndexInPhrase: 0},
+        {kindOfAccent: KindOfAccent.HIGH,     wordIndexInPhrase: 1},
+      ],
+      [
+        {kindOfAccent: KindOfAccent.LOW,      wordIndexInPhrase: 2},
+        {kindOfAccent: KindOfAccent.HIGH,     wordIndexInPhrase: 3},
+      ],
+      [
+        {kindOfAccent: KindOfAccent.LOW,      wordIndexInPhrase: 4},
+        {kindOfAccent: KindOfAccent.HIGH,     wordIndexInPhrase: 5},
+      ],
+      [
+        {kindOfAccent: KindOfAccent.LOW,      wordIndexInPhrase: 5},
+        {kindOfAccent: KindOfAccent.LOW,      wordIndexInPhrase: 6},
+        {kindOfAccent: KindOfAccent.HIGH,     wordIndexInPhrase: 7},
+      ],
+      [
+        {kindOfAccent: KindOfAccent.LOW,      wordIndexInPhrase: 8},
+        {kindOfAccent: KindOfAccent.LOW,      wordIndexInPhrase: 9},
+        {kindOfAccent: KindOfAccent.HIGH,     wordIndexInPhrase: 10},
+      ],
     ]
   }
 
