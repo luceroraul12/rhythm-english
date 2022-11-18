@@ -36,7 +36,7 @@ export class BasicComponent implements OnInit {
   }
 
   readPhrase():void{
-    this.rhythmService.readPhrase(this.phraseService.rhythmResponse.rhythms);
+    this.rhythmService.readPhrase(this.phraseService.rhythmResponse.listRhythmToPlay);
   }
 
   reset(): void{
