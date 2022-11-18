@@ -31,7 +31,7 @@ export class RhythmService {
         observableInside = from(rhythms)
                             .pipe(
                               concatMap(val => of(val).pipe(delay(1000/count))),
-                              tap(rhythm => this.emitBeep(result, rhythm))
+                              tap(rhythm => this.emitBeep(rhythm))
                             );
         observableInside.subscribe( w => {
           this.phraseService.communicator.next(w.wordIndexInPhrase);
@@ -39,10 +39,12 @@ export class RhythmService {
       }
     );
   }
-  emitBeep(result: Rhythm[][], rhythm: Rhythm) {
-    result.forEach(list => {
-      rhythm == list[0] ? this.beep(200,440,10) : this.beep(200,300,3);
-    })
+  emitBeep(rhythm: Rhythm) {
+    if(rhythm.kindOfAccent == KindOfAccent.HIGH){
+      this.beep(200, 440, 10);
+    } else {
+      this.beep(200, 440, 3);
+    }
   }
 
   generateListOfRhythms(rhythms: Rhythm[]): Array<Rhythm[]>{
@@ -84,7 +86,7 @@ export class RhythmService {
         // Set default duration if not provided
         duration = duration || 200;
         frequency = frequency || 440;
-        volume = volume;
+        volume = volume || 100;
 
         try{
             let oscillatorNode = this.myAudioContext.createOscillator();
@@ -95,7 +97,7 @@ export class RhythmService {
             oscillatorNode.frequency.value = frequency;
 
             // Set the type of oscillator
-            oscillatorNode.type= "square";
+            oscillatorNode.type= "sine";
             gainNode.connect(this.myAudioContext.destination);
 
             // Set the gain to the volume
