@@ -9,7 +9,7 @@ import { PhraseService } from './phrase.service';
 export class RhythmService {
 
   private myAudioContext = new AudioContext();
-  private everyTime: number = 700;
+  private everyTime: number = 1000;
 
   constructor(
     private phraseService: PhraseService
@@ -21,7 +21,6 @@ export class RhythmService {
     let observable: Observable<Rhythm[]> = from(result)
                                             .pipe(
                                               concatMap(val => of(val).pipe(delay(this.everyTime))),
-                                              // tap(console.log)
                                             );
 
     let observableInside: Observable<Rhythm>;
@@ -44,7 +43,7 @@ export class RhythmService {
     if(rhythm.kindOfAccent == KindOfAccent.HIGH){
       this.beep(200, 440, 10);
     } else {
-      this.beep(200, 440, 3);
+      this.beep(200, 400, 3);
     }
   }
 
@@ -67,7 +66,7 @@ export class RhythmService {
           rhythms.slice(lastIndex, i)
         );
         if(i == rhythms.length-1 ){
-          result.push([rhythms[i]]);
+          result[result.length-1].push(rhythms[i]);
         }
         lastIndex = i;
       }
