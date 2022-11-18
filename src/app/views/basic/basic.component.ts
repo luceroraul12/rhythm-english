@@ -25,6 +25,8 @@ export class BasicComponent implements OnInit {
         this.counter++;
         this.phrase.forEach(p => p.isReadedNow = false);
         this.phrase[index].isReadedNow = true;
+        console.log(this.phrase[index].word);
+        
 
         if(this.counter == this.phraseService.rhythmResponse.rhythms.length){
           setTimeout(()=>this.reset(),1000)
