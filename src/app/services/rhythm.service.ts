@@ -9,7 +9,7 @@ import { PhraseService } from './phrase.service';
 export class RhythmService {
 
   private myAudioContext = new AudioContext();
-  private everyTime: number = 1000;
+  private everyTime: number = 700;
 
   constructor(
     private phraseService: PhraseService
